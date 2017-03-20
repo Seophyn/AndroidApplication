@@ -35,7 +35,7 @@
         android:layout_marginTop="8dp"
         android:text="799 kr"
         app:layout_constraintLeft_toRightOf="@+id/auctionImageImageView"
-        app:layout_constraintTop_toBottomOf="@+id/auctionImageImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/auctionNameTextView" />
 
     <TextView
         android:id="@+id/auctionBuyOutPriceTextView"
@@ -46,10 +46,10 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:text="BuyoutPrice"
-        app:layout_constraintBottom_toBottomOf="@+id/auctionImageImageView"
-        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/auctionImageImageView"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/auctionImageImageView"
-        app:layout_constraintVertical_bias="0.725" />
+        app:layout_constraintVertical_bias="0.369"
+        app:layout_constraintTop_toBottomOf="@+id/auctionImageImageView"
+        app:layout_constraintBottom_toTopOf="@+id/auctionHighestBidTextView" />
 </android.support.constraint.ConstraintLayout>

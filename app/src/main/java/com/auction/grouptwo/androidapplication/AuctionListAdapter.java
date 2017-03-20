@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.lang.reflect.Array;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -40,6 +39,7 @@ public class AuctionListAdapter extends ArrayAdapter<Auction> {
         TextView auctionHighestBid = (TextView) convertView.findViewById(R.id.auctionHighestBidTextView);
 
         auctionName.setText(auction.getName());
+        auctionHighestBid.setText(auction.getName());
 
         Locale swedish = new Locale("sv", "SE");
         NumberFormat priceFormat = NumberFormat.getCurrencyInstance(swedish);

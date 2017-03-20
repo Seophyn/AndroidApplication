@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     public static final String AUCTION = "AUCTION";
+
     private ArrayList<Auction> auctions = new ArrayList<>();
 
     @Override
@@ -34,31 +35,33 @@ public class MainActivity extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
-        JsonArrayRequest request = new JsonArrayRequest("http://nackademiska-api.azurewebsites.net/api/auction", new Response.Listener<JSONArray>(){
-            @Override
-            public void onResponse(JSONArray response){
-                try{
-                    for (int i = 0; i < response.length(); i++){
-                        JSONObject auction = (JSONObject) response.get(i);
-                        auctions.add(new Auction(auction.getInt("id"), auction.getString("name"), auction.getString("description"),
-                                auction.getString("startTime"), auction.getString("endTime"), auction.getString("imageUrl"),
-                                auction.getInt("categoryId"), auction.getInt("supplierId"), auction.getDouble("buyNowPrice")));
+        JsonArrayRequest request = new JsonArrayRequest("http://nackademiska-api.azurewebsites.net/api/auction",
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            for (int i = 0; i < response.length(); i++) {
+                                JSONObject auction = (JSONObject) response.get(i);
+                                auctions.add(new Auction(auction.getInt("id"), auction.getString("name"), auction.getString("description"),
+                                        auction.getString("startTime"), auction.getString("endTime"), auction.getString("imageUrl"),
+                                        auction.getInt("categoryId"), auction.getInt("supplierId"), auction.getDouble("buyNowPrice")));
+                            }
+                            setupAuctionList();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
-                    setupAuctionList();
-                } catch (JSONException e){
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener(){
+                }, new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError error){
-        }
-    });
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
         requestQueue.add(request);
 
     }
 
-    private void setupAuctionList(){
+    private void setupAuctionList() {
 
         AuctionListAdapter auctionAdapter = new AuctionListAdapter(this, R.layout.auction_list_item, auctions);
 
@@ -66,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
 
         auctionListView.setAdapter(auctionAdapter);
 
-        auctionListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        auctionListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                 intent.putExtra(AUCTION, auctions.get(position));
                 startActivity(intent);
