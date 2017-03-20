@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/auctionImageImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/skjorta"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/auctionNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="En fin skjorta i blått"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/auctionImageImageView"
+        app:layout_constraintTop_toTopOf="@+id/auctionImageImageView" />
+
+    <TextView
+        android:id="@+id/auctionHighestBidTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="799 kr"
+        app:layout_constraintLeft_toRightOf="@+id/auctionImageImageView"
+        app:layout_constraintTop_toBottomOf="@+id/auctionImageImageView" />
+
+    <TextView
+        android:id="@+id/auctionBuyOutPriceTextView"
+        android:layout_width="81dp"
+        android:layout_height="33dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="BuyoutPrice"
+        app:layout_constraintBottom_toBottomOf="@+id/auctionImageImageView"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintLeft_toRightOf="@+id/auctionImageImageView"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/auctionImageImageView"
+        app:layout_constraintVertical_bias="0.725" />
+</android.support.constraint.ConstraintLayout>
